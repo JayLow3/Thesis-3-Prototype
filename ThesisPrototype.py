@@ -362,24 +362,7 @@ if st.button("Run"):
     r2 = (forest2 / total) * 100
 
     change = r2 - r1
-    abs_change = abs(change)
-
-    # Severity
-    if abs_change < 5:
-        severity = "No Significant Change"
-
-    elif abs_change < 10:
-        severity = "Slight"
-
-    elif abs_change < 25:
-        severity = "Moderate"
-
-    elif abs_change < 50:
-        severity = "Significant"
-
-    else:
-        severity = "Severe"
-
+    
     # Trend
     if change > 0:
         trend = "Reforestation"
@@ -396,11 +379,22 @@ if st.button("Run"):
 
     st.subheader("Results")
 
-    st.write(f"Earlier Forest Cover: {r1:.2f}%")
-    st.write(f"Later Forest Cover: {r2:.2f}%")
-    st.write(f"Net Change: {change:.2f}%")
-    st.write(f"Trend: {trend}")
-    st.write(f"Severity Level: {severity}")
+    st.metric(
+    "Earlier Forest Cover",
+    f"{r1:.2f}%"
+    )
+
+    st.metric(
+    "Later Forest Cover",
+    f"{r2:.2f}%"
+    )
+
+    st.metric(
+    "Forest Cover Change",
+    f"{change:+.2f}%"
+    )
+
+    st.write(f"Detected Trend: **{trend}**")
 
     # =========================
     # VISUALIZATION
