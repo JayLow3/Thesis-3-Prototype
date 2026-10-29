@@ -407,7 +407,6 @@ if st.button("Run"):
             trend = "No Change"
 
         st.subheader("Results")
-        st.write(f"Model used: **{detected_model}**")
 
         col1, col2 = st.columns(2)
 
