@@ -222,9 +222,6 @@ if model_file is not None:
         model.load_state_dict(checkpoint)
         model.eval()
 
-        st.success(f"Successfully loaded {detected_model}")
-        st.caption(f"Running on: {device.upper()}")
-
     except Exception as e:
         model = None
         detected_model = None
